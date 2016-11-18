@@ -1,0 +1,84 @@
+html {
+	background: #f8f6f2;
+}
+html,body {
+	height: 100%;
+}
+.main {
+	height: 100%;
+	overflow: auto;
+	border-left: 1px solid #ccc;
+	background: #fff;
+}
+.main-title {
+	line-height: 70px;
+	padding-left: 20px;
+	border-bottom: 1px solid #ddd;
+	font-size: 18px;
+	font-weight: 700;
+	color: #2f4050;
+}
+.header {
+	width: 100%;
+	height: 50px;
+	background: #2f4050;
+	color: #f2f3f4;
+}
+.header-title {
+	float: left;
+	padding-left: 20px;
+	line-height: 50px;
+	font-size: 16px;
+}
+.header-btn {
+	float: right;
+	padding-right: 20px;
+	line-height: 50px;
+	font-size: 14px;
+	cursor: pointer;
+}
+.header-btn:hover {	
+	color: #f1e2e3;
+}
+.menu {
+	float: left;
+	width: 240px;
+	height: 100%;
+	margin-right: 15px;
+	border-top: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+.menu li {
+	line-height: 50px;
+	padding-left: 40px;
+	border-bottom: 1px solid #ddd;
+	color: #5c5c5c;
+	background: #fff;
+	cursor: pointer;
+}
+.menu li a {
+	display: block;
+	cursor: pointer;
+}
+
+.menu li.active, .menu li:hover {
+	background: #f2f2f2;
+}
+.menu-info {
+	width: 230px;
+	margin: 0 auto;
+	margin-top: 30px;
+	padding: 15px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	background: #fff;
+	color: #333;
+}
+.menu-info h2 {
+	line-height: 30px;
+}
+.menu-info p {
+	line-height: 20px;
+	margin: 20px 0;
+	color: #5c5c5c;
+}

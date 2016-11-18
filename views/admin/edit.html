@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<%- include('../../unit/layout/admin/header.html') %>
+	<title>编辑-后台管理系统</title>
+	<link rel="stylesheet" type="text/css" href="/src/less/admin/edit.css">
+</head>
+<body>
+	<%- include('./common/menu.html') %>
+	<div class="main">
+		<h2 class="main-title">编辑</h2>
+		<div class="wrapper">
+			<div class="form-group">
+				<label>书名</label>
+				<input class="form-input J_bookname" type="text" />
+			</div>
+			<div class="form-group">
+				<label>数量</label>
+				<input class="form-input J_count" type="text" />
+			</div>
+			<div class="form-group">
+				<label>出版社</label>
+				<input class="form-input J_concern" type="text" />
+			</div>
+			<div class="form-group">
+				<label>作者</label>
+				<input class="form-input J_author" type="text" />
+			</div>
+			<div class="form-group">
+				<label>类别</label>
+				<select class="form-input J_category">
+					<option value=""></option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>联系人</label>
+				<input class="form-input J_user" type="text" />
+			</div>
+			<div class="form-group">
+				<label>状态</label>
+				<select class="form-input J_status">
+					<option value=""></option>
+					<option value="0">平台托管</option>
+					<option value="1">个人管理</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>简介</label>
+				<textarea class="form-textarea J_desc"></textarea>
+			</div>
+			<div class="form-group">
+				<label>封面图</label>
+				<div class="upload">
+				<div class="upload-container">
+					<span>选择图片</span>
+				    <input type="file" name="fileToUpload" id="fileToUpload" class="fileupload" />
+				</div>
+				<div class="img-preview">
+					<img class="J_preview" src="">
+				</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>&nbsp;</label>
+				<span class="btn J_btn">提交</span>
+			</div>
+		</div>
+	</div>
+	<%- include('../../unit/layout/admin/footer.html') %>
+	<script type="text/javascript" src="/src/js/admin/edit.js"></script>
+</body>
+</html>

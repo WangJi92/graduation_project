@@ -1,0 +1,51 @@
+@import "/common/css/iconfont/iconfont.css";
+html {
+	background-color: #f4f5f5;
+}
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: #fff;
+	border-bottom: 1px solid #f1f1f1;
+	color: #007fff;
+	height: 64px;
+}
+.container {
+	width: 1000px;
+	margin: 0 auto;
+}
+.title {
+	float: left;
+	line-height: 64px;
+	font-size: 28px;
+	cursor: pointer;
+}
+.slogen {
+	float: left;
+	margin-left: 36px;
+	line-height: 64px;
+	font-size: 16px;
+	letter-spacing: 2px;
+}
+.search {
+	float: right;
+	margin: 16px 36px 0 0;
+	width: 240px;
+	padding: 0 10px;
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	color: #909090;
+}
+.search input {
+	border: none;
+	outline: none;
+	padding: 8px;
+	color: #909090;
+}
+.header-btn {
+	float: right;
+	line-height: 64px;
+	color: #007fff;
+}

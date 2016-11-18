@@ -1,0 +1,92 @@
+@import "./common/menu.css";
+.wrapper {
+    padding: 30px 0 30px 30px;
+}
+.upload-container {
+    display: inline-block;
+    position: relative;
+    background: #1c84c6;
+    width: 100px;
+    height: 40px;
+    vertical-align: middle;
+    border-radius: 4px;
+}
+.upload-container span {
+    position: absolute;
+    display: block;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+}
+.upload-container:hover {
+    background: #1a7bb9;
+}
+.fileupload {
+    position: absolute;
+    opacity: 0;
+    width: 100px;
+    height: 40px;
+    outline: none;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: inline-block;
+    width: 200px;
+    line-height: 40px;
+    text-align: right;
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #5c5c5c;
+    vertical-align: top;
+}
+.form-input {
+    height: 40px;
+    width: 200px;
+    box-sizing: border-box;
+    padding: 16px;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    line-height: 40px;
+    font-size: 14px;
+    color: #3d3d3d;
+}
+.form-textarea {
+    width: 300px;
+    height: 80px;
+    padding: 16px;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    resize: none;
+    font-size: 14px;
+    color: #3d3d3d;
+}
+.img-preview {
+    width: 300px;
+    height: 300px;
+    margin: 20px 0; 
+    background: #f2f2f2;
+}
+.img-preview img {
+    width: 300px;
+}
+.upload {
+    display: inline-block;
+}
+.btn {
+    padding: 10px 30px;
+    border-radius: 3px;
+    color: #fff;
+    background: #5cb85c;
+    cursor: pointer;
+}
+.btn:hover {
+    background: #7cb85c;
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<%- include('../../unit/layout/admin/header.html') %>
+	<title>后台管理系统登录</title>
+	<link rel="stylesheet" type="text/css" href="/src/less/admin/login.css">
+</head>
+<body>
+	<div class="login-panel">
+		<h1 class="login-title iconfont">&#xe600;&nbsp;后台管理系统</h1>
+		<input style="display:none">
+		<input class="login-input J_username" type="text" autocomplete="off" placeholder="用户名" />
+		<input class="login-input J_password" type="password" autocomplete="off" placeholder="密码" />
+		<div class="login-btn J_login-btn">登录</div>
+		<p class="login-desc J_login-desc"></p>
+	</div>
+	<%- include('../../unit/layout/admin/footer.html') %>
+	<script type="text/javascript" src="/src/js/admin/login.js"></script>
+</body>
+</html>
