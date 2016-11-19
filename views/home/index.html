@@ -11,30 +11,39 @@
 			<h1 class="title">bookshare</h1>
 			<p class="slogen">专业的书籍分享平台</p>
 			<a class="header-btn login" href="">登录</a>
-			<a class="header-btn sign" href="">注册·</a>
+			<a class="header-btn sign" href="/home/sign-up.html">注册·</a>
 			<div class="search">
 				<i class="iconfont">&#xe651;</i>
 				<input type="text" placeholder="输入关键字搜索"/>
 			</div>
 		</div>
 	</div>
-	<div class="content">
-		<div class="item">
-			<div class="item-img">
-				<img src="" />
-			</div>
-			<div class="item-info">
-				<h2 class="item-title">高等数学(上)</h2>
-				<p class="item-author"></p>
-				<p class="item-concern"></p>
-				<p class="item-user">
-					<span></span>
-					<span></span>
-				</p>
-			</div>
+	<div class="content clear">
+		<div class="book-wrapper clear J_book-wrapper"></div>
+		<div class="info-wrapper">
+			
 		</div>
+		<ul class="pagination J_pagination"></ul>
 	</div>
+	<div class="footer"></div>
+
+	<script type="text/template" id="tpl">
+		{@each books as it}
+		<a class="item" href="/detail.html?id=${it.bid}">
+			<div class="item-img">
+				<img src="${it.cover_img}" />
+			</div>
+			<p class="item-info">
+				<span class="item-title">${it.bname}</span>
+				<span>作者: ${it.author}</span>
+				<span>出版社: ${it.book_concern}</span>	
+			</p>
+		</a>
+		{@/each}
+	</script>
     <script type="text/javascript" src="/unit/common/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/unit/common/js/juicer-min.js"></script>
+	<script type="text/javascript" src="/unit/common/js/jqPaginator.min.js"></script>
     <script type="text/javascript" src="/src/js/home/index.js"></script>
 </body>
 </html>

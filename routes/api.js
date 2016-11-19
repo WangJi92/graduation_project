@@ -11,5 +11,7 @@ router.post('/admin/login', require('./admin/login'))
 	.get('/admin/categoryMap', require('./admin/categoryMap'))
 	.get('/admin/book', require('./admin/book'))
 	.post('/admin/update', require('./admin/update'))
+	.get('/home/index', require('./home/index'))
+	.post('/home/signUp', require('./home/signUp'))
 
 module.exports = router;

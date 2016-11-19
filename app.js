@@ -48,12 +48,12 @@ var handleHtml = {
   do: function(fixPath) {
     var self = this;
     return function(req, res) {
-      // if (req.path !== '/admin/login.html') {
-      //   if (!req.session.user) {
-      //     res.redirect('/admin/login.html');
-      //     return;
-      //   }
-      // }
+      if (req.path.indexOf('admin') !== -1 && req.path !== '/admin/login.html') {
+        if (!req.session.user) {
+          res.redirect('/admin/login.html');
+          return;
+        }
+      }
       var filePath = (fixPath || '') + req.path;
       
       fs.stat(filePath, function(err, stats) {
