@@ -6,6 +6,11 @@ html {
 input:-webkit-autofill{
   box-shadow:0 0 0 21px #fff inset;
 }
+.clear:after {
+	display: block;
+	content: '';
+	clear: both;
+}
 .login-panel {
 	width: 350px;
 	margin: 0 auto;

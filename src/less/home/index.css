@@ -51,12 +51,13 @@ html {
 	padding: 8px;
 	color: #909090;
 }
-.header-btn {
+.user {
 	float: right;
 	line-height: 64px;
-	color: #007fff;
 }
-
+.user a {
+	color: #007eee;
+}
 .content {
 	width: 1000px;
 	margin: 0 auto;

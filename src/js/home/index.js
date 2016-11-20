@@ -2,10 +2,25 @@ $(function() {
 	var main = {
 		page: 1,
 		init: function() {
+			this.getUserInfo();
 			this.fetch();
+		},
+		getUserInfo: function() {
+			$.ajax({
+				url: '/api/home/getUserInfo',
+				type: 'get',
+				dataType: 'json',
+				success: function(result) {
+					if (result.success) {
+						$('.J_logined').html('你好！' + result.uname).show();
+						$('.J_not-login').hide();
+					}
+				}
+			})
 		},
 		fetch: function() {
 			var that = this;
+
 			$.ajax({
 				url: '/api/home/index',
 				type: 'get',

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('../../unit/layout/home/header.html')%>
+    <title>登录</title>
+    <link rel="stylesheet" href="/src/less/home/sign-in.css" media="all" />
+</head>
+<body>
+	<div class="login-panel">
+		<h1 class="login-title iconfont">&#xe600;&nbsp;用户登录</h1>
+		<input style="display:none">
+		<input class="login-input J_username" type="text" autocomplete="off" placeholder="用户名" />
+		<input class="login-input J_password" type="password" autocomplete="off" placeholder="密码" />
+		<div class="login-btn J_logup-btn">登录</div>
+		<p class="login-href clear">
+			<a class="left" href="/home/index.html">返回首页</a>
+			<a class="right" href="/home/sign-up.html">没有账号？</a>
+		</p>
+		<p class="login-desc J_logup-desc"></p>
+	</div>
+	
+    <script type="text/javascript" src="/unit/common/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/unit/common/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/unit/common/js/message_zh.js"></script>
+    <script type="text/javascript" src="/src/js/home/sign-in.js"></script>
+</body>
+</html>
