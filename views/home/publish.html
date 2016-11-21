@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<%- include('../../unit/layout/home/header.html') %>
+	<title>发布信息</title>
+	<link rel="stylesheet" type="text/css" href="/src/less/home/publish.css">
+</head>
+<body>
+	<div class="header">
+		<div class="container">
+			<h1 class="title">bookshare</h1>
+			<p class="slogen">专业的书籍分享平台</p>
+			<p class="user clear J_not-login">
+				<a class="header-btn sign" href="/home/sign-up.html">注册·</a>
+				<a class="header-btn login" href="">登录</a>
+			</p>
+			<P class="user J_logined"></P>
+			<div class="search">
+				<i class="iconfont">&#xe651;</i>
+				<input class="J_search" type="text" placeholder="输入关键字搜索"/>
+			</div>
+		</div>
+	</div>
+	<div class="content clear">
+		<div class="info-wrapper">
+			<a class="info-tab J_info-tab" href="/home/index.html">
+				<i class="iconfont">&#xe783;</i>
+				首页
+			</a>			
+			<a class="info-tab J_info-tab active" href="/home/publish.html">
+				<i class="iconfont">&#xe7cb;</i>
+				发布信息
+			</a>
+		</div>
+		
+		<div class="book-wrapper">
+			<h2>编辑信息</h2>
+			<div class="wrapper">
+				<div class="form-group">
+					<label>书名</label>
+					<input class="form-input J_bookname" type="text" />
+				</div>
+				<div class="form-group">
+					<label>数量</label>
+					<input class="form-input J_count" type="text" />
+				</div>
+				<div class="form-group">
+					<label>出版社</label>
+					<input class="form-input J_concern" type="text" />
+				</div>
+				<div class="form-group">
+					<label>作者</label>
+					<input class="form-input J_author" type="text" />
+				</div>
+				<div class="form-group">
+					<label>类别</label>
+					<select class="form-input J_category">
+						<option value=""></option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>联系人</label>
+					<input class="form-input J_user" type="text" />
+				</div>
+				<div class="form-group">
+					<label>状态</label>
+					<select class="form-input J_status">
+						<option value=""></option>
+						<option value="0">平台托管</option>
+						<option value="1">个人管理</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>简介</label>
+					<textarea class="form-textarea J_desc"></textarea>
+				</div>
+				<div class="form-group">
+					<label>封面图</label>
+					<div class="upload">
+					<div class="upload-container">
+						<span>选择图片</span>
+					    <input type="file" name="fileToUpload" id="fileToUpload" class="fileupload" />
+					</div>
+					<div class="img-preview">
+						<img class="J_preview" src="">
+					</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>&nbsp;</label>
+					<span class="btn J_btn">提交</span>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+    <script type="text/javascript" src="/unit/common/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/src/js/home/publish.js"></script>
+</body>
+</html>

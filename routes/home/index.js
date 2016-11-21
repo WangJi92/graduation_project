@@ -17,11 +17,12 @@ function index(req, res) {
 				if (err) {
 					throw err;
 					o = send(false, '连接错误，请重试');
+					res.send(o);
 				} else if (rows.length == 0) {
 					o = send(false, '没有数据哦！')
+					res.send(o);
 				} else {
 					o = send(true, '成功', {page: page, pageSize: pageSize , books: rows});
-
 					connection.query(
 						'select count(*) as total from books',
 						[],
@@ -30,8 +31,6 @@ function index(req, res) {
 							res.send(o);
 						}
 					);
-
-
 				}
 			}
 		)

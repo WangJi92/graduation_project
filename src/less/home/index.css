@@ -67,7 +67,6 @@ html {
 	float: left;
 	width: 816px;
 }
-
 .item {
 	float: left;
 	display: block;
@@ -123,7 +122,19 @@ html {
 	float: left;
 	width: 184px;
 	height: 800px;
-	background: #fff;
+}
+.info-tab {
+	display: block;
+	width: 100%;
+	height: 50px;
+	box-sizing: border-box;
+	padding-left: 40px;
+	color: #909090;
+	line-height: 50px;
+}
+.info-tab.active {
+	color: #007eee;
+	font-weight: 700;
 }
 
 .footer {
