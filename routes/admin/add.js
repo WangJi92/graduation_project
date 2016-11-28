@@ -5,7 +5,6 @@ var $conf = require('../../dbConfig');
 function add(req, res) {
 	var data = req.body,
 		now = parseInt(new Date().getTime()/1000);
-		console.log(data.desc)
 	var o = {},
 		connection = mysql.createConnection($conf);
 	connection.connect();

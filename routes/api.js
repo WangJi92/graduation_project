@@ -16,5 +16,6 @@ router.post('/admin/login', require('./admin/login'))
 	.post('/home/signUp', require('./home/signUp'))
 	.post('/home/signIn', require('./home/signIn'))
 	.get('/home/search', require('./home/search'))
+	.post('/home/publish', require('./home/publish'))
 
 module.exports = router;

@@ -2,17 +2,16 @@ var express = require('express');
 var fs = require('fs');
 var formidable = require('formidable');
 var router = express.Router();
-var cacheFolder = 'public/images/uploadcache/';
+var cacheFolder = 'images/uploadcache/';
 var UPLOAD_FOLDER = '/images/uploadcache/'
 
 router.post('/', function(req, res) {
-	var currentUser = req.session.user || {id: 0};
-	var userDirPath = cacheFolder+ currentUser.id;
+	var currentUser = req.session.user.aid || req.session.user.uid || 0;
+	var userDirPath = cacheFolder + currentUser;
 
 	if (!fs.existsSync(userDirPath)) {
         fs.mkdirSync(userDirPath);
     }
-
     var form = new formidable.IncomingForm();
 
     form.encoding = 'utf-8'; //设置编辑
@@ -50,7 +49,7 @@ router.post('/', function(req, res) {
         } else {
             var avatarName = '/' + Date.now() + '.' + extName;
             var newPath = form.uploadDir + avatarName;
-            displayUrl = UPLOAD_FOLDER + currentUser.id + avatarName;
+            displayUrl = UPLOAD_FOLDER + currentUser + avatarName;
             fs.renameSync(files.upload.path, newPath); //重命名
             res.send({
                 code: 200,

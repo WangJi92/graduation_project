@@ -105,6 +105,7 @@
                     dataType: 'json',
                     success: function(result) {
                         if (result.success) {
+                            debugger
                             window.location = 'book_manage.html'
                         }
                     },
