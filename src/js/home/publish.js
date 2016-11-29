@@ -1,11 +1,42 @@
 $(function() {
 	var main = {
+		uid: '',
 		init: function() {
 			this.bindEvent();
 			this.getCategory();
 			this.getUserInfo();
 		},
+		fetch: function() {
+			var bid = getQuery(window.location.href).bid,
+				that = this;
+			if (bid) {
+				$.ajax({
+	                url: '/api/home/getBookInfo',
+	                type: 'get',
+	                data: {
+	                	bid: bid
+	                },
+	                dataType: 'json',
+	                success: function(data) {
+	                	if (data.success) {
+	                		var book = data.book;
+	                		$('.J_bookname').val(book.bname);
+	                		$('.J_count').val(book.count);
+	                		$('.J_concern').val(book.book_concern);
+	                		$('.J_author').val(book.author);
+	                		$('.J_category').val(book.tid);
+	                		$('.J_desc').val(book.book_desc);
+	                		$('.J_preview').attr('src', book.cover_img);	           
+	                	}        
+	                },
+	                error: function() {
+	                    console.log('error');
+	                }
+	            });
+			}	
+		},
 		getUserInfo: function() {
+			var that = this;
 			$.ajax({
                 url: '/api/home/getUserInfo',
                 type: 'get',
@@ -13,6 +44,10 @@ $(function() {
                 success: function(data) {
                 	if (!data.success) {
                 		window.location = '/home/sign-in.html'   
+                	} else {  
+                		$('.J_logined').html('你好！' + data.uname).show();
+						$('.J_not-login').hide();
+						that.uid = data.uid;
                 	}        
                 },
                 error: function() {
@@ -21,6 +56,7 @@ $(function() {
             });
 		},
 		getCategory: function() {
+			var that = this;
 			$.ajax({
                 url: '/api/admin/categoryMap',
                 type: 'get',
@@ -31,7 +67,9 @@ $(function() {
                 		data.category.forEach(function(v) {
                 			html += '<option value="' + v.tid + '">' + v.tname + '</option>';
                 		});
-                		$('.J_category').html(html);      
+                		$('.J_category').html(html);  
+
+						that.fetch();    
                 	}           
                 },
                 error: function() {
@@ -40,6 +78,7 @@ $(function() {
             });
 		},
 		bindEvent: function() {
+			var that = this;
 			$('.fileupload').change(function(event) {
                 if ($('.fileupload').val().length) {
                     var fileName = $('.fileupload').val();
@@ -72,9 +111,9 @@ $(function() {
                     concern: $('.J_concern').val().trim(),
                     author: $('.J_author').val().trim(),
                     category: $('.J_category').val(),
-                    status: $('.J_status').val(),
                     desc: $('.J_desc').val().trim(),
-                    img: $('.J_preview').attr('src')
+                    img: $('.J_preview').attr('src'),
+                    uid: that.uid
                 };
 				$.ajax({
 	                url: '/api/home/publish',
@@ -94,4 +133,38 @@ $(function() {
 		}
 	}
 	main.init();
+	function getQuery(str) {
+        var search = '',
+            params = {};
+        if((matchArr = str.match(new RegExp('^(https?|beibei|beibeiapp|mizhe|mizheapp):[/]{2}' + //protocal
+            '(?:([^@/:\?]+)(?::([^@/:]+))?@)?' +  //username:password@
+            '([^:/?#]+)' +                        //hostname
+            '(?:[:]([0-9]+))?' +                  //port
+            '([/][^?#;]*)?' +                     //pathname
+            '(?:[?]([^?#]*))?' +                  //search
+            '(#[^#]*)?$'                          //hash
+        )))) {
+            search = matchArr[7] || '';
+        }
+        if(typeof search === 'string') {
+            if (search.indexOf('?') === 0) {
+                search = search.substr(1);
+            }
+            var search = search.split('&');
+            for(var p in params) {
+                delete params[p];
+            }
+            for(var i = 0 ; i < search.length; i++) {
+                var pair = search[i].split('=');
+                if (pair[0]) {
+                    try {
+                        params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
+                    } catch(e) {
+                        params[pair[0]] = pair[1] || '';
+                    }
+                }
+            }
+        }
+        return params;
+    }
 })

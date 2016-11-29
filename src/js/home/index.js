@@ -14,7 +14,10 @@ $(function() {
 				dataType: 'json',
 				success: function(result) {
 					if (result.success) {
-						$('.J_logined').html('你好！' + result.uname).show();
+						$('.J_logined').html(
+							'<a href="/home/user.html?uid=' + result.uid + '">你好！' + result.uname + '</a>' + 
+							' · <span class="J_logout logout">注销</span>'
+						).show();
 						$('.J_not-login').hide();
 					}
 				}
@@ -112,6 +115,23 @@ $(function() {
 				$infoTab.removeClass('active');
 				$(this).addClass('active');
 			});
+
+			//注销
+			$('.J_logined').on('click', '.J_logout', function() {
+				$.ajax({
+					url: '/api/home/logout',
+					type: 'post',
+					dataType: 'json',
+					success: function(result) {
+						if (result.success) {
+							window.location.reload();
+						}
+					},
+					error: function() {
+
+					}
+				})
+			})
 		}
 	}
 	main.init()

@@ -58,6 +58,9 @@ html {
 .user a {
 	color: #007eee;
 }
+.logout {
+	cursor: pointer;
+}
 .content {
 	width: 1000px;
 	margin: 0 auto;

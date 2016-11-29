@@ -17,5 +17,10 @@ router.post('/admin/login', require('./admin/login'))
 	.post('/home/signIn', require('./home/signIn'))
 	.get('/home/search', require('./home/search'))
 	.post('/home/publish', require('./home/publish'))
+	.get('/home/getBookInfo', require('./home/getBookInfo'))
+	.get('/home/getPublishInfo', require('./home/getPublishInfo'))
+	.post('/home/modifyUserInfo', require('./home/modifyUserInfo'))
+	.post('/home/logout', require('./home/logout'))
+	.post('/home/updateStatus', require('./home/updateStatus'))
 
 module.exports = router;

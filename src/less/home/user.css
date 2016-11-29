@@ -1,0 +1,268 @@
+@import "/common/css/iconfont/iconfont.css";
+html {
+	background-color: #f4f5f5;
+}
+.hidden {
+	display: none;
+}
+.clear:after {
+	display: block;
+	content: '';
+	clear: both;
+}
+
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: #fff;
+	border-bottom: 1px solid #f1f1f1;
+	color: #007fff;
+	height: 64px;
+	z-index: 10;
+}
+.container {
+	width: 1000px;
+	margin: 0 auto;
+}
+.title {
+	float: left;
+	line-height: 64px;
+	font-size: 28px;
+	cursor: pointer;
+}
+.slogen {
+	float: left;
+	margin-left: 36px;
+	line-height: 64px;
+	font-size: 16px;
+	letter-spacing: 2px;
+}
+.search {
+	float: right;
+	margin: 16px 36px 0 0;
+	width: 240px;
+	padding: 0 10px;
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	color: #909090;
+}
+.search input {
+	border: none;
+	outline: none;
+	padding: 8px;
+	color: #909090;
+}
+.user {
+	float: right;
+	line-height: 64px;
+}
+.user a {
+	color: #007eee;
+}
+
+.content {
+	width: 1000px;
+	margin: 0 auto;
+	margin-top: 80px;
+}
+.book-wrapper {
+	float: left;
+	width: 816px;
+}
+.info-wrapper {
+	float: left;
+	width: 184px;
+	height: 800px;
+}
+.info-tab {
+	display: block;
+	width: 100%;
+	height: 50px;
+	box-sizing: border-box;
+	padding-left: 40px;
+	color: #909090;
+	line-height: 50px;
+}
+.info-tab.active {
+	color: #007eee;
+	font-weight: 700;
+}
+
+.user-wrapper {
+	width: 816px;
+	box-sizing: border-box;
+	padding: 10px;
+	background: #fff;
+}
+.user-avatar {
+	float: left;
+	width: 200px;
+	height: 200px;
+	box-sizing: border-box;
+	margin-right: 20px;
+	border: 3px solid #ccc;
+	padding: 4px;
+	overflow: hidden;
+}
+.user-avatar img {
+	display: block;
+	position: relative;
+	top: 50%;
+	width: 100%;
+	transform: translate(0, -50%);
+}
+.user-info {
+	float: left;
+	font-size: 14px;
+	color: #3d3d3d;
+}
+.info-item {
+	margin-top: 20px;
+}
+.info-item strong {
+	display: inline-block;
+	width: 70px;
+	text-align: right;
+	margin-right: 20px;
+}
+.info-modify {
+	display: inline-block;
+	width: 70px;
+	text-align: right;
+	margin-top: 50px;
+	color: #007eee;
+	cursor: pointer;
+}
+.info-modify:hover {
+	text-decoration: underline;
+}
+.user-publish {
+	margin-top: 16px;
+	padding-bottom: 16px;
+	background: #fff;
+}
+.publish-title {
+	line-height: 40px;
+	box-sizing: border-box;
+	padding-left: 16px;
+	border-bottom: 1px solid #ccc;
+	font-size: 18px;
+	font-weight: 700;
+	color: #3d3d3d;
+}
+.publish-item {
+	display: block;
+	box-sizing: border-box;
+	padding: 16px 0px 10px 0;
+	margin: 0 16px;
+	border-bottom: 1px dashed #ccc;
+}
+.item-info {
+	float: left;
+	width: 650px;
+}
+.publish-item .item-title:hover {
+	text-decoration: underline;
+}
+.publish-item .item-title {
+	font-size: 16px;
+	color: #3d3d3d;
+}
+.publish-item .item-desc {
+	margin-top: 8px;
+	font-size: 14px;
+	color: #8f8f8f;
+}
+.publish-item .item-date {
+	margin-top: 6px;
+	text-align: right;
+	font-size: 12px;
+	color: #8f8f8f;
+}
+.item-status {
+	float: left;
+	width: 134px;
+}
+.item-status span {
+	position: relative;
+	top: 16px;
+	margin: 0 auto;
+	margin-left: 20px;
+	padding: 5px 10px;
+	border-radius: 3px;
+	background: #007eee;
+	font-size: 14px;
+	color: #fff;
+	cursor: pointer;
+}
+.item-status .status-finished {
+	background: #e1e1e1;
+	cursor: not-allowed;
+}
+
+/* 弹出窗 */
+.mask {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.3);
+}
+.modal {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 300px;
+	padding: 30px 40px;
+	background: #fff;
+}
+.modal-item {
+	margin-top: 20px;
+	font-size: 0;
+}
+.modal-item label {
+	display: inline-block;
+	width: 60px;
+	margin-right: 10px;
+	text-align: right;
+	font-size: 14px;
+	color: #3d3d3d;
+}
+.modal-item input {
+	width: 200px;
+	height: 30px;
+	padding: 0 12px;
+	outline: none;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	color: #3d3d3d;
+}
+.btn-group {
+	width: 160px;
+	margin: 0 auto;
+	font-size: 0;
+}
+.btn-group .btn {
+	display: inline-block;
+	padding: 0 20px;
+	margin: 20px 10px 0 0;
+	line-height: 30px;
+	border-radius: 4px;
+	background: #007eee;
+	font-size: 14px;
+	color: #fff;
+	cursor: pointer;
+}
+.btn-group .cancel-btn {
+	background: #ff3322;
+}
+.modal-item .tip {
+	display: inline-block;
+	font-size: 14px;
+	color: red;
+}
+/* End 弹出窗*/

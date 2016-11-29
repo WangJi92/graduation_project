@@ -2,8 +2,8 @@
 <html>
 <head>
     <%- include('../../unit/layout/home/header.html')%>
-    <title>首页</title>
-    <link rel="stylesheet" href="/src/less/home/index.css" media="all" />
+    <title>书籍详情</title>
+    <link rel="stylesheet" href="/src/less/home/detail.css" media="all" />
 </head>
 <body>
 	<div class="header">
@@ -23,7 +23,7 @@
 	</div>
 	<div class="content clear">
 		<div class="info-wrapper">
-			<a class="info-tab J_info-tab active" href="/home/index.html">
+			<a class="info-tab J_info-tab" href="/home/index.html">
 				<i class="iconfont">&#xe783;</i>
 				首页
 			</a>			
@@ -32,30 +32,32 @@
 				发布信息
 			</a>
 		</div>
-		<div class="book-wrapper">
-			<div class="clear J_book-wrapper"></div>
-			<ul class="pagination J_pagination"></ul>
+		<div class="book-wrapper J_book-wrapper">
+			
 		</div>
 	</div>
 	<div class="footer"></div>
-
 	<script type="text/template" id="tpl">
-		{@each books as it}
-		<a class="item" href="/home/detail.html?id=${it.bid}">
-			<div class="item-img">
-				<img src="${it.cover_img}" />
+		<div class="book-header clear">
+				<div class="book-img">
+					<img src="${book.cover_img}">
+				</div>
+				<div class="book-user">
+					<h2 class="book-name">${book.bname}</h2>
+					<p class="user-name"><span>联系人</span>${book.true_name}</p>
+					<p class="user-tel"><span>手机号</span>${book.tel}</p>
+				</div>
 			</div>
-			<p class="item-info">
-				<span class="item-title">${it.bname}</span>
-				<span>作者: ${it.author}</span>
-				<span>出版社: ${it.book_concern}</span>	
-			</p>
-		</a>
-		{@/each}
+			<div class="book-content">
+				<p class="content-info"><strong>作者</strong><span>${book.author}</span></p>
+				<p class="content-info"><strong>出版社</strong><span>${book.book_concern}</span></p>
+				<p class="content-info"><strong>数量</strong><span>${book.count}</span></p>
+				<p class="content-info"><strong>描述</strong><span>${book.book_desc}</span></p>				
+			</div>
 	</script>
+	
     <script type="text/javascript" src="/unit/common/js/jquery.min.js"></script>
 	<script type="text/javascript" src="/unit/common/js/juicer-min.js"></script>
-	<script type="text/javascript" src="/unit/common/js/jqPaginator.min.js"></script>
-    <script type="text/javascript" src="/src/js/home/index.js"></script>
+    <script type="text/javascript" src="/src/js/home/detail.js"></script>
 </body>
 </html>
