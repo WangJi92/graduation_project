@@ -1,0 +1,136 @@
+<style type="text/css">
+/* header */
+
+.header-wrap {
+    height: 90px;
+    background: #ffda44;
+}
+
+.header {
+    position: relative;
+    width: 1190px;
+    margin: 0 auto;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header-logo {
+    display: inline-block;
+    height: 90px;
+    margin-left: 5px;
+    padding-left: 110px;
+    line-height: 90px;
+    font-size: 12px;
+    color: #222;
+    background: url("/images/dev/index/logo.png") no-repeat;
+}
+
+.header-nav {
+    position: absolute;
+    top: 28px;
+    left: 320px;
+}
+
+.header-nav ul {
+    display: inline;
+}
+
+.header-nav li {
+    display: inline;
+    line-height: 35px;
+    padding: 8px 0;
+    margin: 0 15px;
+    font-size: 15px;
+}
+
+.header-nav li.active {
+    border-bottom: 4px solid #000;
+}
+
+.header-nav a {
+    color: #000;
+    text-decoration: none;
+}
+
+.header-search {
+    position: absolute;
+    right: 65px;
+    top: 27px;
+    width: 220px;
+    height: 36px;
+    background: #333;
+}
+
+.input-search {
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 164px;
+    height: 32px;
+    padding: 0 10px;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    font-size: 13px;
+}
+
+.btn-search {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 36px;
+    height: 36px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    background: #333;
+}
+
+
+/* End header */
+</style>
+<div class="header-wrap">
+    <div class="header">
+        <h1 class="header-logo">不要让你的书闲着！</h1>
+        <div class="header-nav">
+            <ul class="J_nav">
+                <li><a href="/home/index.html">首页</a></li>
+                <li><a href="/home/publish.html">发布闲书</a></li>
+                <li><a href="/home/user.html">我的闲书</a></li>
+            </ul>
+        </div>
+        <div class="header-search">
+            <input class="input-search J_input-search" type="text">
+            <button class="btn-search J_btn-search">
+                <i class="iconfont">&#xe651;</i>
+                <span class="search-img"></span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/unit/common/js/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+    var location = window.location.href;
+    $('.J_btn-search').on('click', function() {
+        console.log(1)
+        window.location = '/home/list.html?keyword=' + $('.J_input-search').val().trim();
+    })
+
+    //nav状态
+    $('.J_nav').find('a').each(function(i, v) {
+        var $v = $(v),
+            $l = $v.parent();
+        $l.removeClass('active');
+        if (location.indexOf($v.attr('href')) !== -1) {
+            $l.addClass('active');
+        }
+    })
+})
+</script>

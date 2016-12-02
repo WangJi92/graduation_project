@@ -6,56 +6,179 @@
     <link rel="stylesheet" href="/src/less/home/index.css" media="all" />
 </head>
 <body>
-	<div class="header">
-		<div class="container">
-			<h1 class="title">bookshare</h1>
-			<p class="slogen">专业的书籍分享平台</p>
-			<p class="user clear J_not-login">
-				<a class="header-btn sign" href="/home/sign-up.html">注册·</a>
-				<a class="header-btn login" href="/home/sign-in.html">登录</a>
-			</p>
-			<P class="user J_logined"></P>
-			<div class="search">
-				<i class="iconfont">&#xe651;</i>
-				<input class="J_search" type="text" placeholder="输入关键字搜索"/>
-			</div>
-		</div>
-	</div>
-	<div class="content clear">
-		<div class="info-wrapper">
-			<a class="info-tab J_info-tab active" href="/home/index.html">
-				<i class="iconfont">&#xe783;</i>
-				首页
-			</a>			
-			<a class="info-tab J_info-tab" href="/home/publish.html">
-				<i class="iconfont">&#xe7cb;</i>
-				发布信息
-			</a>
-		</div>
-		<div class="book-wrapper">
-			<div class="clear J_book-wrapper"></div>
-			<ul class="pagination J_pagination"></ul>
-		</div>
-	</div>
-	<div class="footer"></div>
+    <%- include('./common/nav.html')%>
+    <div class="content-wrap">
+        <div class="content">
+            <div class="first-mod clear">
+                <div class="school-box">
+                    <ul class="school-list">
+                        <li class="list-item">
+                            <b class="s1"></b>
+                            <a href="/home/list.html?school_id=1">杭州电子科技大学</a>
+                        </li>
+                        <li class="list-item">
+                            <b class="s2"></b>
+                            <a href="/home/list.html?school_id=2">浙江理工大学</a>
+                        </li>
+                        <li class="list-item">
+                            <b class="s3"></b>
+                            <a href="/home/list.html?school_id=3">浙江传媒大学</a>
+                        </li>
+                        <li class="list-item">
+                            <b class="s4"></b>
+                            <a href="/home/list.html?school_id=4">中国计量大学</a>
+                        </li>
+                        <li class="list-item">
+                            <b class="s5"></b>
+                            <a href="/home/list.html?school_id=5">浙江工商大学</a>
+                        </li>
+                        <li class="list-item">
+                            <b class="s6"></b>
+                            <a href="/home/list.html?school_id=6">杭州师范大学</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="index-slide">
+                    <img src="/images/ad/1.png">
+                </div>
+                <div class="user-box">
+                    <div class="user-btn">
+                        <div class="J_unlogin-wrap hidden">
+                            <div class="btn-left">
+                                <a href="/home/sign-in.html">
+                                    <span class="main-title">登录<i class="iconfont">&#xe619;</i></span>
+                                    <span class="sub-title">登录即可发布闲书</span>
+                                </a>
+                            </div>
+                            <div class="btn-right">
+                                <a href="/home/sign-up.html">
+                                    <span class="main-title">注册<i class="iconfont">&#xe618;</i></span>
+                                    <span class="sub-title">还没有账号？</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="J_login-wrap hidden">
+                            <p class="login-welcome">欢迎您</p>
+                            <h2 class="login-user"><i class="iconfont">&#xe600;</i><a class="J_user-name" href="/home/user.html"></a></h2>
+                            <p class="logout J_logout"><i class="iconfont">&#xe7b5;</i>退出</p>
+                        </div>
+                    </div>
+                    <div class="user-extend">
+                        <p class="notice-title"><i class="iconfont">&#xe61a;</i>公告</p>
+                        <p class="notice-content">本站招募网站管理员2名，有意者联系qq332323951!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="second-mod clear">
+                <div class="may-like">占位置</div>
+                <div class="new-items">
+                    <div class="hd">
+                        <h2>
+                            <a href="/home/list.html?heat=1">热门推荐</a>
+                        </h2>
+                    </div>
+                    <div class="bd">
+                        <div class="item-list">
+                            <ul class="J_heat-books"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="finished-books J_finish-list-wrap">
+                    <h2>找到新主人的闲书</h2>
+                    <div class="finished-list">
+                        <ul class="J_finish-books"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="module">
+                <div class="hd">
+                    <h2>
+                        <a href="/home/list.html?category=19">大学基础课程类</a>
+                    </h2>
+                </div>
+                <div class="bd">
+                    <ul class="item-list J_dxjc-books"></ul>
+                </div>
+            </div>
+            <div class="module">
+                <div class="hd">
+                    <h2>
+                        <a href="/home/list.html?category=5">计算机与网络</a>
+                    </h2>
+                </div>
+                <div class="bd">
+                    <ul class="item-list J_jsjwl-books"></ul>
+                </div>
+            </div>
+            <div class="module">
+                <div class="hd">
+                    <h2>
+                        <a href="/home/list.html?category=1">成功励志</a>
+                    </h2>
+                </div>
+                <div class="bd">
+                    <ul class="item-list J_cglz-books"></ul>
+                </div>
+            </div>
+            <div class="all-category">
+                <h2 class="hd">
+                    所有分类都在这里
+                </h2>
+                <div class="category-wrap">
+                    <ul class="clear J_category-wrap"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('./common/footer.html')%>
+    <script type="text/template" id="heat-tpl">
+        {@each books as it}
+        <li class="item">
+            <div class="item-pic">
+                <a href="">
+                    <img src="${it.cover_img}">
+                </a>
+            </div>
+            <p class="title">
+                <a href="/home/detail.html?id=${it.bid}">${it.bname}</a>
+            </p>
+        </li>
+        {@/each}
+    </script>
 
-	<script type="text/template" id="tpl">
-		{@each books as it}
-		<a class="item" href="/home/detail.html?id=${it.bid}">
-			<div class="item-img">
-				<img src="${it.cover_img}" />
-			</div>
-			<p class="item-info">
-				<span class="item-title">${it.bname}</span>
-				<span>作者: ${it.author}</span>
-				<span>出版社: ${it.book_concern}</span>	
-			</p>
-		</a>
-		{@/each}
-	</script>
-    <script type="text/javascript" src="/unit/common/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/unit/common/js/juicer-min.js"></script>
-	<script type="text/javascript" src="/unit/common/js/jqPaginator.min.js"></script>
+    <script type="text/template" id="finish-tpl">
+        {@each books as it}
+        <li>
+            <a href="">${it.uname}的 ${it.bname} 已被人领走</a>
+        </li>
+        {@/each}
+    </script>
+
+    <script type="text/template" id="item-tpl">
+        {@each books as it}
+        <li class="item">
+            <div class="item-pic">
+                <a href="/home/detail.html?id=${it.bid}">
+                    <img src="${it.cover_img}">
+                </a>
+            </div>
+            <p class="title">
+                <a href="/home/detail.html?id=${it.bid}">${it.bname}</a>
+            </p>
+            <div class="degree-block">
+                <p class="degree">
+                    <em>${it.degree}</em>
+                    <b>成新</b>
+                </p>
+            </div>
+        </li>
+        {@/each}
+    </script>
+    <script type="text/template" id="category-tpl">
+        {@each categories as it}
+            <li><a href="/home/list.html?category=${it.id}">${it.tname}</a></li>
+        {@/each}
+    </script>
     <script type="text/javascript" src="/src/js/home/index.js"></script>
 </body>
 </html>

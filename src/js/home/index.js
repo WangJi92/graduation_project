@@ -1,138 +1,159 @@
 $(function() {
-	var main = {
-		page: 1,
-		searchPage: 1,
-		init: function() {
-			this.getUserInfo();
-			this.fetch();
-			this.bindEvent();
-		},
-		getUserInfo: function() {
-			$.ajax({
-				url: '/api/home/getUserInfo',
-				type: 'get',
-				dataType: 'json',
-				success: function(result) {
-					if (result.success) {
-						$('.J_logined').html(
-							'<a href="/home/user.html?uid=' + result.uid + '">你好！' + result.uname + '</a>' + 
-							' · <span class="J_logout logout">注销</span>'
-						).show();
-						$('.J_not-login').hide();
-					}
-				}
-			})
-		},
-		fetch: function() {
-			var that = this;
+    var main = {
+        page: 1,
+        searchPage: 1,
+        init: function() {
+            this.getUserInfo();
+            this.getHeatBooks();
+            this.getFinishBooks();
+            this.getDxjcBooks();
+            this.getJsjwlBooks();
+            this.getCglzBooks();
+            this.getAllCategory();
+            this.bindEvent();
+        },
+        getUserInfo: function() {
+            $.ajax({
+                url: '/api/home/getUserInfo',
+                type: 'get',
+                dataType: 'json',
+                success: function(result) {
+                    if (result.success) {
+                        $('.J_user-name').html(result.uname);
+                        $('.J_login-wrap').removeClass('hidden');
+                        $('.J_unlogin-wrap').addClass('hidden');
+                    } else {
+                        $('.J_login-wrap').addClass('hidden');
+                        $('.J_unlogin-wrap').removeClass('hidden');
+                    }
+                }
+            })
+        },
+        getHeatBooks: function() {
+            $.ajax({
+                url: '/api/home/get_heat_books',
+                type: 'get',
+                dataType: 'json',
+                success: function(result) {
+                    if (result.success) {
+                        var tpl = $('#heat-tpl').html();
+                        var html = juicer(tpl, result);
+                        $('.J_heat-books').html(html);
+                    }
+                }
+            })
+        },
+        getFinishBooks: function() {
+            $.ajax({
+                url: '/api/home/get_finish_books',
+                type: 'get',
+                dataType: 'json',
+                success: function(result) {
+                    if (result.success) {
+                        var tpl = $('#finish-tpl').html();
+                        var html = juicer(tpl, result);
+                        var move = 0;
+                        var $finishBooks = $('.J_finish-books');
+                        var $finishBooksWrap = $('.J_finish-list-wrap');
+                        $finishBooks.html(html);
 
-			$.ajax({
-				url: '/api/home/index',
-				type: 'get',
-				dataType: 'json',
-				data: {
-					page: that.page
-				},
-				success: function(result) {
-					if (result.success) {
-						that.render(result);
-					}
-				},
-				error: function() {
 
-				}
-			})
-		},
-		render: function(data) {
-			var tpl = $('#tpl').html();
-			var html = juicer(tpl, data);
-			var that = this;
-			$('.J_book-wrapper').html(html);
+                        var timer = setInterval(startmove, 50)
 
-			$('.J_pagination').jqPaginator({
-				totalPages: data.totalPage,
-				pageSize: data.pageSize,
-				currentPage: +data.page,
-				visiblePages: 5,
-				onPageChange: function(num, type) {
-					if (type === 'change'){
-						that.page = num;
-						that.fetch(num);
-					}
-				}
-			});
-		},
-		renderSearchData: function(data) {
-			var tpl = $('#tpl').html();
-			var html = juicer(tpl, data);
-			var that = this;
-			$('.J_book-wrapper').html(html);
+                        $finishBooks.on('mouseover', function() {
+                            clearInterval(timer);
+                        });
 
-			$('.J_pagination').jqPaginator({
-				totalPages: data.totalPage,
-				pageSize: data.pageSize,
-				currentPage: +data.page,
-				visiblePages: 5,
-				onPageChange: function(num, type) {
-					if (type === 'change'){
-						that.searchPage = num;
-						that.fetch(num);
-					}
-				}
-			});
-		},
-		fetchSearchData: function(content) {
-			var that = this;
-			$.ajax({
-				url: '/api/home/search',
-				type: 'get',
-				dataType: 'json',
-				data: {
-					page: that.searchPage,
-					content: content
-				},
-				success: function(result) {
-					if (result.success) {
-						that.renderSearchData(result)
-					}
-				},
-				error: function() {
+                        $finishBooks.on('mouseout', function() {
+                            timer = setInterval(startmove, 50)
+                        });
 
-				}
-			})
-		},
-		bindEvent: function() {
-			var that = this;
-			$('.J_search').on('keydown', function(e) {
-				var content = $(this).val();
-					
-				if (e.keyCode === 13) {
-					that.fetchSearchData(content);
-				}
-			})
-			var $infoTab = $('.J_info-tab');
-			$infoTab.on('click', function() {
-				$infoTab.removeClass('active');
-				$(this).addClass('active');
-			});
+                        function startmove() {
+                            if (move < -($finishBooks.height() - $finishBooksWrap.height())) {
+                                move = 0;
+                            }
+                            $finishBooks.css({
+                                'transform': 'translate(0, ' + (move--) + 'px)'
+                            })
+                        }
+                    }
+                }
+            })
+        },
+        getDxjcBooks: function() {
+            $.ajax({
+                url: '/api/home/get_category_books?category=18',
+                type: 'get',
+                dataType: 'json',
+                success: function(result) {
+                    if (result.success) {
+                        var tpl = $('#item-tpl').html();
+                        var html = juicer(tpl, result);
+                        $('.J_dxjc-books').html(html);
+                    }
+                }
+            })
+        },
+        getJsjwlBooks: function() {
+            $.ajax({
+                url: '/api/home/get_category_books?category=5',
+                type: 'get',
+                dataType: 'json',
+                success: function(result) {
+                    if (result.success) {
+                        var tpl = $('#item-tpl').html();
+                        var html = juicer(tpl, result);
+                        $('.J_jsjwl-books').html(html);
+                    }
+                }
+            })
+        },
+        getCglzBooks: function() {
+            $.ajax({
+                url: '/api/home/get_category_books?category=1',
+                type: 'get',
+                dataType: 'json',
+                success: function(result) {
+                    if (result.success) {
+                        var tpl = $('#item-tpl').html();
+                        var html = juicer(tpl, result);
+                        $('.J_cglz-books').html(html);
+                    }
+                }
+            })
+        },
+        getAllCategory: function() {
+            $.ajax({
+                url: '/api/home/get_all_category',
+                type: 'get',
+                dataType: 'json',
+                success: function(result) {
+                    if (result.success) {
+                        var tpl = $('#category-tpl').html();
+                        var html = juicer(tpl, result);
+                        $('.J_category-wrap').html(html);
+                    }
+                }
+            })
+        },
+        bindEvent: function() {
+            //注销
+            $('.J_logout').on('click', function() {
+                $.ajax({
+                    url: '/api/home/logout',
+                    type: 'post',
+                    dataType: 'json',
+                    success: function(result) {
+                        if (result.success) {
+                            window.location.reload();
+                        }
+                    },
+                    error: function() {
 
-			//注销
-			$('.J_logined').on('click', '.J_logout', function() {
-				$.ajax({
-					url: '/api/home/logout',
-					type: 'post',
-					dataType: 'json',
-					success: function(result) {
-						if (result.success) {
-							window.location.reload();
-						}
-					},
-					error: function() {
-
-					}
-				})
-			})
-		}
-	}
-	main.init()
+                    }
+                })
+            })
+        }
+    }
+    main.init()
 });

@@ -11,6 +11,7 @@ router.post('/admin/login', require('./admin/login'))
 	.get('/admin/categoryMap', require('./admin/categoryMap'))
 	.get('/admin/book', require('./admin/book'))
 	.post('/admin/update', require('./admin/update'))
+
 	.get('/home/getUserInfo', require('./home/getUserInfo'))
 	.get('/home/index', require('./home/index'))
 	.post('/home/signUp', require('./home/signUp'))
@@ -22,5 +23,10 @@ router.post('/admin/login', require('./admin/login'))
 	.post('/home/modifyUserInfo', require('./home/modifyUserInfo'))
 	.post('/home/logout', require('./home/logout'))
 	.post('/home/updateStatus', require('./home/updateStatus'))
+	.get('/home/get_heat_books', require('./home/getHeatBooks'))
+	.get('/home/get_finish_books', require('./home/getFinishBooks'))
+	.get('/home/get_category_books', require('./home/getCategoryBooks'))
+	.get('/home/get_all_category', require('./home/getAllCategory'))
+	.get('/home/get_query_books', require('./home/getQueryBooks'))
 
 module.exports = router;

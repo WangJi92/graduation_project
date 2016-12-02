@@ -68,52 +68,6 @@ var handleHtml = {
     }
   }
 };
-var handleLess = {
-    showError: function(e) {
-        var spaces = '';
-        var errorContent = e.filename + ' : ' + e.line + '\n\n';
-        errorContent += '--------------------------' + '\n';
-        errorContent += (e.extract[0] ? e.extract[0] : '') + '\n';
-        errorContent += e.extract[1] + '\n';
-        spaces += e.extract[1].match(/[\t]*/) && e.extract[1].match(/[\t]*/)[0];
-        for (; e.column--;) spaces += ' ';
-        errorContent += spaces + '^^' + '\n';
-        errorContent += (e.extract[2] ? e.extract[2] : '') + '\n';
-        errorContent += '--------------------------' + '\n\n';
-        errorContent += 'message : ' + e.message;
-        return errorContent;
-    },
-    do: function() {
-
-        var self = this;
-        return function(req, res) {
-            //@note 设置响应头类型 
-            res.setHeader('Content-Type', 'text/css');
-            var path = __dirname + req.path;
-            console.log(path)
-            //less文件不存在 404
-            if (!fs.existsSync(path)) {
-                var err = new Error('Not Found');
-                err.status = 404;
-                res.status(err.status || 500);
-                res.end(err.message);
-                return;
-            }
-
-            var contentText = fs.readFileSync(path);
-            less.render(contentText.toString(), {
-                filename: path
-            }, function(e, output) {
-                if (e) {
-                    res.end(self.showError(e));
-                } else {
-                    res.end(output.css);
-                }
-            });
-
-        }
-    }
-};
 app.get('/', function(req, res) {
   res.redirect('/home/index.html');
 });
@@ -124,7 +78,6 @@ app.get('/admin', function(req, res) {
   res.redirect('/admin/index.html');
 });
 app.get('/*.html', handleHtml.do('views'))
-app.get('/src/*.less', handleLess.do())
 
 app.use(express.static(__dirname));
 

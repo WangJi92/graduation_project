@@ -28,9 +28,6 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
-body {
-    line-height: 1;
-}
 ol, ul {
     list-style: none;
 }
@@ -50,6 +47,18 @@ table {
     display: none;
 }
 a {
-    color: #5c5c5c;
+    color: #333;
     text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+body {
+    line-height: 1.5;
+    font-size: 12px;
+}
+.clear:after {
+    display: block;
+    content: '';
+    clear: both;
 }

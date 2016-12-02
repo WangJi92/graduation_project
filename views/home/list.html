@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../../unit/layout/home/header.html')%>
+        <title>搜索结果</title>
+        <link rel="stylesheet" href="/src/less/home/list.css" media="all" />
+</head>
+
+<body>
+    <%- include('./common/nav.html')%>
+    <div class="content-wrap">
+        <div class="content">
+            <div class="crumbs-container">
+                <div class="crumbs">
+                    <em class="crumbs-title">闲书分类：</em>
+                </div>
+            </div>
+            <div class="category-box">
+                <div class="category-wrap">
+                    <div class="category-subs">
+                        <ul class="sub-category-list J_category-wrap"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="search-filters-container clear">
+                <div class="search-filters-bar">
+                    <div class="search-filters-block">
+                        <input id="J_radio-heat" class="checkbox-filter J_query-order" type="radio" name="itemfrom" value="1" >   
+                        <label for="J_radio-heat" class="checkbox-filter-label J_query-degree">按热度</label>
+                        <input id="J_radio-time" class="checkbox-filter J_query-order" type="radio" name="itemfrom" value="2"> 
+                        <label for="J_radio-time" class="checkbox-filter-label J_query-degree">按时间</label>
+                    </div>
+                    <div class="search-filters-block">
+                        <div class="search-select-filter">
+                            <label class="checkbox-filter-label">成色</label>
+                            <select>
+                                <option class="J_query-degree"></option>
+                                <option class="J_query-degree" value="9">9成新</option>
+                                <option class="J_query-degree" value="8">8成新</option>
+                                <option class="J_query-degree" value="7">7成新</option>
+                                <option class="J_query-degree" value="6">6成新</option>
+                                <option class="J_query-degree" value="5">5成新</option>
+                                <option class="J_query-degree" value="4">4成新</option>
+                                <option class="J_query-degree" value="3">3成新</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="search-filters-block">
+                        <div class="search-select-filter">
+                            <label class="checkbox-filter-label">状态</label>
+                            <select>
+                                <option class="J_query-status"></option>
+                                <option class="J_query-status" value="1">已完成</option>
+                                <option class="J_query-status" value="0">未完成</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="search-filters-block">
+                        <button class="filter-default J_go-search">确定</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item-lists-container clear">
+                <div class="item-lists-leftbar J_item-leftbar">
+                    <div class="item-filters-container">
+                        <div class="item-filters">
+                            <dl class="item-school-filter">
+                                <dt>学校选择</dt>
+                                <dd>
+                                    <div class="all-school clearfix">
+                                        <span class="item-btn J_all-school">全大学城</span>
+                                    </div>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="school-list-wrap">
+                        <ul class="school-list">
+                            <li class="school-list-item J_school-list-item">
+                                <b class="s1"></b>
+                                <a href="/home/list.html?school_id=1">杭州电子科技大学</a>
+                            </li>
+                            <li class="school-list-item J_school-list-item">
+                                <b class="s2"></b>
+                                <a href="/home/list.html?school_id=2">浙江理工大学</a>
+                            </li>
+                            <li class="school-list-item J_school-list-item">
+                                <b class="s3"></b>
+                                <a href="/home/list.html?school_id=3">浙江传媒大学</a>
+                            </li>
+                            <li class="school-list-item J_school-list-item">
+                                <b class="s4"></b>
+                                <a href="/home/list.html?school_id=4">中国计量大学</a>
+                            </li>
+                            <li class="school-list-item J_school-list-item">
+                                <b class="s5"></b>
+                                 <a href="/home/list.html?school_id=5">浙江工商大学</a>
+                            </li>
+                            <li class="school-list-item J_school-list-item">
+                                <b class="s6"></b>
+                                <a href="/home/list.html?school_id=6">杭州师范大学</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <ul class="item-lists J_item-lists"></ul>
+            </div>
+            <div class="pagination-box">
+                <div class="pagination-wrap">
+                    <ul class="pagination J_pagination clear"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/template" id="list-tpl">
+        {@each books as it}
+        <li class="item-info-wrapper">
+            <div class="item-info">
+                <div class="item-pic">
+                    <a target="_blank" href=""><img src="${it.cover_img}"></a>
+                </div>
+                <h4 class="item-title"><a target="_blank" href="/home/detail.html?id=${it.bid}">${it.bname}</a></h4>
+                <div class="item-degree"><span class="degree"><em>${it.degree}</em><b>成新</b></span></div>
+                <div class="item-description">${it.book_desc}</div>
+                <div class="item-pub-info">
+                    <span class="item-pub-time">${it.modify_time}</span>
+                </div>
+            </div>
+            <div class="seller-info-wrapper">
+                <div class="seller-info">
+                    <a target="_blank" href="/home/list.html?uid=${it.uid}" class="seller-avatar">
+                        <img src="${it.avatar}">
+                    </a>
+                    <div class="seller-nick">
+                        <a target="_blank" href="/home/list.html?uid=${it.uid}" class="seller-nick-name">${it.uname}</a>
+                    </div>
+                </div>
+                <div class="seller-count">
+                    <a href="/home/list.html?school=${it.school_id}" class="number" target="_blank">${it.school_name}</a>
+                </div>
+            </div>
+        </li>
+        {@/each}
+    </script>
+
+    <script type="text/template" id="category-tpl">
+        {@each categories as it}
+        <li>
+            <a href="/home/list.html?category=${it.tid}">${it.tname}</a>
+        </li>
+        {@/each}
+    </script>
+    <%- include('./common/footer.html')%>
+
+    <script type="text/javascript" src="/unit/common/js/jqPaginator.min.js"></script>
+    <script type="text/javascript" src="/src/js/home/list.js"></script>
+</body>
+
+</html>
