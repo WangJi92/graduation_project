@@ -13,19 +13,25 @@
 		<input class="login-input J_password" type="password" autocomplete="off" placeholder="密码" />
 		<input class="login-input J_email" type="text" autocomplete="off" placeholder="邮箱" />
 		<input class="login-input J_tel" type="number" autocomplete="off" placeholder="手机号" />
-		<input class="login-input J_address" type="text" autocomplete="off" placeholder="邮寄地址" />
+		<select class="login-input J_school"></select>
 		<input class="login-input J_truename" type="text" autocomplete="off" placeholder="真实姓名" />
 		<div class="login-btn J_logup-btn">注册</div>
-		<p class="login-href">
+		<p class="login-href clear">
 			<a class="left" href="/home/index.html">返回首页</a>
 			<a class="right" href="/home/sign-in.html">已有账号？</a>
 		</p>
 		<p class="login-desc J_logup-desc"></p>
 	</div>
 	
+	<script type="template/javascript" id="school-tpl">
+		<option value="">学校</option>
+		{@each schools as school}
+		<option value="${school.id}">${school.school_name}</option>
+		{@/each}
+	</script>
+
     <script type="text/javascript" src="/unit/common/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/unit/common/js/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="/unit/common/js/message_zh.js"></script>
+    <%- include('./common/footer.html')%>
     <script type="text/javascript" src="/src/js/home/sign-up.js"></script>
 </body>
 </html>

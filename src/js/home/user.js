@@ -1,28 +1,26 @@
 $(function() {
 	var main = {
 		init: function() {
-			this.fetch();
 			this.getUserInfo();
 			this.bindEvent();
 		},
 		getUserInfo: function() {
+			var that = this;
 			$.ajax({
 				url: '/api/home/getUserInfo',
 				type: 'get',
 				dataType: 'json',
 				success: function(result) {
 					if (result.success) {
-						$('.J_logined').html('你好！' + result.uname).show();
-						$('.J_not-login').hide();
+						that.fetch(+result.uid);
 					} else {
 						window.location = '/home/sign-in.html'
 					}
 				}
 			})
 		},
-		fetch: function() {
-			var uid = getQuery(window.location.href).uid,
-				that = this;
+		fetch: function(uid) {
+			var that = this;
 			$.ajax({
 				url: '/api/home/getPublishInfo',
 				type: 'get',

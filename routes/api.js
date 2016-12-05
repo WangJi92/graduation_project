@@ -13,10 +13,8 @@ router.post('/admin/login', require('./admin/login'))
 	.post('/admin/update', require('./admin/update'))
 
 	.get('/home/getUserInfo', require('./home/getUserInfo'))
-	.get('/home/index', require('./home/index'))
 	.post('/home/signUp', require('./home/signUp'))
 	.post('/home/signIn', require('./home/signIn'))
-	.get('/home/search', require('./home/search'))
 	.post('/home/publish', require('./home/publish'))
 	.get('/home/getBookInfo', require('./home/getBookInfo'))
 	.get('/home/getPublishInfo', require('./home/getPublishInfo'))
@@ -28,5 +26,6 @@ router.post('/admin/login', require('./admin/login'))
 	.get('/home/get_category_books', require('./home/getCategoryBooks'))
 	.get('/home/get_all_category', require('./home/getAllCategory'))
 	.get('/home/get_query_books', require('./home/getQueryBooks'))
+	.get('/home/get_all_school', require('./home/getAllSchool'))
 
 module.exports = router;

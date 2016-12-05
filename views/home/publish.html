@@ -6,33 +6,9 @@
 	<link rel="stylesheet" type="text/css" href="/src/less/home/publish.css">
 </head>
 <body>
-	<div class="header">
-		<div class="container">
-			<h1 class="title">bookshare</h1>
-			<p class="slogen">专业的书籍分享平台</p>
-			<p class="user clear J_not-login">
-				<a class="header-btn sign" href="/home/sign-up.html">注册·</a>
-				<a class="header-btn login" href="/home/sign-in.html">登录</a>
-			</p>
-			<P class="user J_logined"></P>
-			<div class="search">
-				<i class="iconfont">&#xe651;</i>
-				<input class="J_search" type="text" placeholder="输入关键字搜索"/>
-			</div>
-		</div>
-	</div>
+
+    <%- include('./common/nav.html')%>
 	<div class="content clear">
-		<div class="info-wrapper">
-			<a class="info-tab J_info-tab" href="/home/index.html">
-				<i class="iconfont">&#xe783;</i>
-				首页
-			</a>			
-			<a class="info-tab J_info-tab active" href="/home/publish.html">
-				<i class="iconfont">&#xe7cb;</i>
-				发布信息
-			</a>
-		</div>
-		
 		<div class="book-wrapper">
 			<h2>编辑信息</h2>
 			<div class="wrapper">
@@ -59,6 +35,19 @@
 					</select>
 				</div>
 				<div class="form-group">
+					<label>成色</label>
+					<select class="form-input J_degree">
+						<option></option>
+						<option value="9">9成新</option>
+						<option value="8">8成新</option>
+						<option value="7">7成新</option>
+						<option value="6">6成新</option>
+						<option value="5">5成新</option>
+						<option value="4">4成新</option>
+						<option value="3">3成新</option>
+					</select>
+				</div>
+				<div class="form-group">
 					<label>简介</label>
 					<textarea class="form-textarea J_desc"></textarea>
 				</div>
@@ -78,12 +67,17 @@
 					<label>&nbsp;</label>
 					<span class="btn J_btn">提交</span>
 				</div>
+
+				<div class="form-group">
+					<label>&nbsp;</label>
+					<p class="publish-tip J_publish-tip"></p>
+				</div>
 			</div>
 		</div>
 		
 	</div>
 
-    <script type="text/javascript" src="/unit/common/js/jquery.min.js"></script>
+    <%- include('./common/footer.html')%>
 	<script type="text/javascript" src="/src/js/home/publish.js"></script>
 </body>
 </html>

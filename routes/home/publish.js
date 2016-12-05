@@ -10,9 +10,9 @@ function publish(req, res) {
 	connection.connect();
 	
 	connection.query(
-		'insert into books (bname, count, book_concern, author, tid, uid, publish_time, modify_time, cover_img, book_desc)' + 
+		'insert into books (bname, count, book_concern, author, tid, uid, publish_time, modify_time, cover_img, book_desc, degree)' + 
 		'values (?,?,?,?,?,?,?,?,?,?,?)',
-		[data.bookname, +data.count, data.concern, data.author, +data.category, +data.uid, now, now, data.img, data.desc],
+		[data.bookname, +data.count, data.concern, data.author, +data.category, +data.uid, now, now, data.img, data.desc, +data.degree],
 		function(err, rows, fields) {
 			if (err) {
 				throw err;

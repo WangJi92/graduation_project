@@ -1,167 +1,169 @@
 @import "/common/css/iconfont/iconfont.css";
-html {
-	background-color: #f4f5f5;
-}
-.clear:after {
-	display: block;
-	content: '';
-	clear: both;
-}
 
-.header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	background: #fff;
-	border-bottom: 1px solid #f1f1f1;
-	color: #007fff;
-	height: 64px;
-	z-index: 10;
-}
-.container {
-	width: 1000px;
-	margin: 0 auto;
-}
-.title {
-	float: left;
-	line-height: 64px;
-	font-size: 28px;
-	cursor: pointer;
-}
-.slogen {
-	float: left;
-	margin-left: 36px;
-	line-height: 64px;
-	font-size: 16px;
-	letter-spacing: 2px;
-}
-.search {
-	float: right;
-	margin: 16px 36px 0 0;
-	width: 240px;
-	padding: 0 10px;
-	border: 1px solid #ddd;
-	border-radius: 2px;
-	color: #909090;
-}
-.search input {
-	border: none;
-	outline: none;
-	padding: 8px;
-	color: #909090;
-}
-.user {
-	float: right;
-	line-height: 64px;
-}
-.user a {
-	color: #007eee;
-}
+/* top-nav */
 
+.content-wrap {
+    width: 100%;
+    margin: auto;
+}
 .content {
-	width: 1000px;
-	margin: 0 auto;
-	margin-top: 80px;
+    width: 1190px;
+    margin: 0 auto;
 }
-.book-wrapper {
+.detail {
+	color: #333;
+    margin-top: 20px;
+    border-top: 2px solid #333;
+}
+.top-nav {
+    position: relative;
+    height: 60px;
+    background-position: 0 47px;
+    z-index: 120;
+}
+.top-nav .other-wrap {
+    display: inline;
+    float: left;
+    width: 100%;
+}
+.top-nav .other {
+    padding: 10px 0 0;
+    height: 50px;
+    border-radius: 0 0 4px;
+}
+.top-nav .other li {
 	float: left;
-	width: 816px;
+    height: 40px;
+    padding: 0 15px;
+    border-right: 1px dotted #ddd;
+    text-align: center;
 }
-
-.info-wrapper {
-	float: left;
-	width: 184px;
-	height: 800px;
+.top-nav .other li h5 {
+    color: #999;
+    font-weight: 400;
+    line-height: 20px;
 }
-.info-tab {
-	display: block;
-	width: 100%;
+.top-nav .other .simple {
 	height: 50px;
-	box-sizing: border-box;
-	padding-left: 40px;
-	color: #909090;
-	line-height: 50px;
 }
-.info-tab.active {
-	color: #007eee;
-	font-weight: 700;
+.top-nav .other .avatar {
+	float: left;
+    margin-right: 10px;
 }
+.top-nav .other .avatar img {
+    vertical-align: middle;
+    max-width: 32px;
+    max-height: 32px;
+}
+.top-nav .other .nick {
+    float: left;
+    height: 22px;
+    width: 166px;
+    overflow: hidden;
+    font-weight: 700;
+    color: #666;
+    text-align: left;
+}
+.top-nav .other .school {
+	text-align: left;
+}
+/* End top-nav */
 
-.book-header {
-	width: 816px;
-	background: #fff;
+/* layout */
+.layout {
+
 }
-.book-img {
+.col-main {
 	float: left;
-	width: 400px;
-	height: 400px;
-	margin: 10px;
-	box-sizing: border-box;
-	border: 3px solid #ccc;
-	overflow: hidden;
+    width: 100%;
+    min-height: 1px;
 }
-.book-img img {
+.main-wrap {
+    margin-left: 750px;
+}
+.property {
+    width: 440px;
+    margin-top: 18px;
+    overflow: hidden;
+}
+.property .title {
+    font-size: 22px;
+    line-height: 31px;
+    font: 700 16px/24px "Microsoft YaHei";
+}
+.idle-info {
+	padding: 10px 0;
+    overflow: hidden;
+    font-size: 14px;
+}
+.idle-info li {
+    padding: 5px 0 5px 80px;
+    white-space: nowrap;
+    position: relative;
+    zoom: 1;
+}
+.idle-info li a {
+	color: #ffda44;
+}
+.idle-info span {
+	float: left;
+    width: 80px;
+    font: 14px/1.5 tahoma,arial,simsun;
+    margin: 0 0 0 -80px;
+}
+.col-sub {
+	float: left;
+    width: 730px;
+    margin-left: -100%;
+}
+.album-wrap {
+	position: relative;
+    overflow: hidden;
+    margin-top: 18px;
+    width: 730px;
+    height: 350px;
+    background: #fff;
+}
+.album {
+	display: table-cell;
+    vertical-align: middle;
+	height: 350px;
+    width: 730px;
+    position: relative;
+    background: url("/images/dev/detail/2.png") repeat;
+}
+.album img {
 	display: block;
-	position: relative;
-	top: 50%;
-	width: 100%;
-	transform: translate(0, -50%);
+	margin: 0 auto;
+    max-width: 730px;
+    max-height: 350px;
 }
-.book-user {
-	position: relative;
-	float: left;
-	width: 396px;
-	height: 420px;
+.idle-desc {
+    margin-top: 30px;
+    width: 730px;
 }
-.book-name {
-	width: 100%;
-	padding: 20px 20px 0 0;
-	box-sizing: border-box;
-	font-size: 26px;
-	color: #3d3d3d;
-	font-weight: 700;
+.list-tabs {
+    border-bottom: 5px solid #ffda44;
+    line-height: 39px;
+    height: 39px;
+    background: #fff;
+    border-radius: 0;
 }
-.user-name {
-	position: absolute;
-	bottom: 100px;
-	font-size: 20px;
-	color: #8f8f8f;
+.list-tabs h3 {
+	display: inline;
+	background-color: #ffda44;
+    height: 39px;
+    line-height: 39px;
+    color: #fff;
+    float: left;
+    outline: 0 none;
+    overflow: hidden;
+    padding: 0 25px;
+    text-decoration: none;
+    font: 700 16px/39px "Microsoft YaHei";
 }
-.user-tel {
-	position: absolute;
-	bottom: 50px;
-	font-size: 24px;
-	color: #007eee;
+.desc-mod {
+    margin: 40px 10px 80px 10px;
+    font: 14px/26px tahoma,arial,simsun;
 }
-.user-name span, .user-tel span {
-	margin-right: 20px;
-	font-size: 18px;
-	color: #8f8f8f;
-}
-.book-content {
-	width: 816px;
-	box-sizing: border-box;
-	padding: 20px;
-	margin-top: 16px;
-	background: #fff;
-}
-.content-info {
-	line-height: 30px;
-	font-size: 0;
-	color: #8f8f8f;
-}
-.content-info strong {
-	display: inline-block;
-	width: 80px;
-	text-align: right;
-	vertical-align: top;
-	margin-right: 20px;
-	color: #3d3d3d;
-	font-size: 14px;
-}
-.content-info span {
-	display: inline-block;
-	width: 674px;
-	font-size: 14px;
-}
+/* End layout */

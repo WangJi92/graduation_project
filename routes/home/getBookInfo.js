@@ -7,8 +7,8 @@ function getBookInfo(req, res) {
 			o = {};
 		connection.connect();
 		connection.query(
-			'select * from (books left join book_type on books.tid = book_type.tid) join users on books.uid = users.uid where bid=?',
-			[req.query.bid],
+			'select * from (books left join book_type on books.tid = book_type.tid) join users on books.uid = users.uid join schools on users.school_id=schools.id where bid=?',
+			[req.query.id],
 			function(err, rows, fields) {
 				if (err) {
 					throw err;

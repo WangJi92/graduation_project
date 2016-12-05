@@ -2,62 +2,110 @@
 <html>
 <head>
     <%- include('../../unit/layout/home/header.html')%>
-    <title>书籍详情</title>
+    <title>闲书详情</title>
     <link rel="stylesheet" href="/src/less/home/detail.css" media="all" />
 </head>
 <body>
-	<div class="header">
-		<div class="container">
-			<h1 class="title">bookshare</h1>
-			<p class="slogen">专业的书籍分享平台</p>
-			<p class="user clear J_not-login">
-				<a class="header-btn sign" href="/home/sign-up.html">注册·</a>
-				<a class="header-btn login" href="/home/sign-in.html">登录</a>
-			</p>
-			<P class="user J_logined"></P>
-			<div class="search">
-				<i class="iconfont">&#xe651;</i>
-				<input class="J_search" type="text" placeholder="输入关键字搜索"/>
-			</div>
-		</div>
-	</div>
-	<div class="content clear">
-		<div class="info-wrapper">
-			<a class="info-tab J_info-tab" href="/home/index.html">
-				<i class="iconfont">&#xe783;</i>
-				首页
-			</a>			
-			<a class="info-tab J_info-tab" href="/home/publish.html">
-				<i class="iconfont">&#xe7cb;</i>
-				发布信息
-			</a>
-		</div>
-		<div class="book-wrapper J_book-wrapper">
-			
-		</div>
-	</div>
-	<div class="footer"></div>
-	<script type="text/template" id="tpl">
-		<div class="book-header clear">
-				<div class="book-img">
-					<img src="${book.cover_img}">
-				</div>
-				<div class="book-user">
-					<h2 class="book-name">${book.bname}</h2>
-					<p class="user-name"><span>联系人</span>${book.true_name}</p>
-					<p class="user-tel"><span>手机号</span>${book.tel}</p>
-				</div>
-			</div>
-			<div class="book-content">
-				<p class="content-info"><strong>作者</strong><span>${book.author}</span></p>
-				<p class="content-info"><strong>出版社</strong><span>${book.book_concern}</span></p>
-				<p class="content-info"><strong>数量</strong><span>${book.count}</span></p>
-				<p class="content-info"><strong>描述</strong><span>${book.book_desc}</span></p>				
-			</div>
-	</script>
-	
-    <script type="text/javascript" src="/unit/common/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/unit/common/js/juicer-min.js"></script>
+    <%- include('./common/nav.html')%>
+
+    <div class="content-wrap">
+        <div class="content">
+            <div class="detail J_detail">
+                
+            </div>
+        </div>
+    </div>
+
+    <%- include('./common/footer.html')%>
+
+    <script type="template/javascript" id="book-tpl">
+        <div class="top-nav clear">
+            <div class="other-wrap">
+                <ul class="other clear">
+                    <li>
+                        <div class="simple">
+                            <div class="avatar">
+                                <img src="${book.avatar}">
+                            </div>
+                            <div class="nick">
+                                <p>${book.uname}</p>
+                            </div>
+                            <p class="school">
+                                <a href="/home/list.html?school=${book.school_id}">${book.school_name}</a>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5>闲书浏览次数</h5>
+                        <span>${book.heat}</span>
+                    </li>
+                    <li>
+                        <h5>最近编辑</h5>
+                        <span>${book.modify_time}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="layout clear">
+            <div class="col-main">
+                <div class="main-wrap">
+                    <div class="property">
+                        <h1 class="title">${book.bname}</h1>
+                        <ul class="idle-info">
+                            <li>
+                                <span>状　　态：</span>
+                                <em>${book.deposit_status ? '完成' : '未完成'}</em>
+                            </li>
+                            <li>
+                                <span>成　　色：</span>
+                                <em>${book.degree}成新</em>
+                            </li>
+                            <li>
+                                <span>所在学校:</span>
+                                <em>${book.school_name}</em>
+                            </li>
+                            <li class="contact">
+                                <span>联系方式：</span> 
+                                <em>${book.tel}</em>
+                            </li>
+                            <li>
+                                <span>交易方式：</span> 
+                                <em>线下自取</em>
+                            </li>
+                            <li>
+                                <span>分　　类：</span>
+                                <a href="/home/list.html?category=${book.tid}">${book.tname}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sub">
+                <div class="album-wrap">
+                    <div class="album">
+                        <img src="${book.cover_img}">
+                    </div>
+                </div>
+                <div class="idle-desc">
+                    <div class="list-tabs">
+                        <h3>闲书介绍</h3>
+                    </div>
+                    <div class="desc-mod">
+                        <p>
+                            <span>作　　者：</span>
+                            <em>${book.author}</em>
+                        </p>
+                        <p>
+                            <span>出&nbsp;&nbsp;版&nbsp;&nbsp;社：</span>
+                            <em>${book.book_concern}</em>
+                        </p>
+                        ${book.book_desc}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
     <script type="text/javascript" src="/src/js/home/detail.js"></script>
 </body>
 </html>

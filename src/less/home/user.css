@@ -2,70 +2,11 @@
 html {
 	background-color: #f4f5f5;
 }
-.hidden {
-	display: none;
-}
-.clear:after {
-	display: block;
-	content: '';
-	clear: both;
-}
-
-.header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	background: #fff;
-	border-bottom: 1px solid #f1f1f1;
-	color: #007fff;
-	height: 64px;
-	z-index: 10;
-}
-.container {
-	width: 1000px;
-	margin: 0 auto;
-}
-.title {
-	float: left;
-	line-height: 64px;
-	font-size: 28px;
-	cursor: pointer;
-}
-.slogen {
-	float: left;
-	margin-left: 36px;
-	line-height: 64px;
-	font-size: 16px;
-	letter-spacing: 2px;
-}
-.search {
-	float: right;
-	margin: 16px 36px 0 0;
-	width: 240px;
-	padding: 0 10px;
-	border: 1px solid #ddd;
-	border-radius: 2px;
-	color: #909090;
-}
-.search input {
-	border: none;
-	outline: none;
-	padding: 8px;
-	color: #909090;
-}
-.user {
-	float: right;
-	line-height: 64px;
-}
-.user a {
-	color: #007eee;
-}
-
 .content {
 	width: 1000px;
 	margin: 0 auto;
-	margin-top: 80px;
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
 .book-wrapper {
 	float: left;
@@ -86,7 +27,7 @@ html {
 	line-height: 50px;
 }
 .info-tab.active {
-	color: #007eee;
+	color: #ffda44;
 	font-weight: 700;
 }
 
@@ -124,15 +65,15 @@ html {
 .info-item strong {
 	display: inline-block;
 	width: 70px;
-	text-align: right;
+	text-align: left;
 	margin-right: 20px;
 }
 .info-modify {
 	display: inline-block;
 	width: 70px;
-	text-align: right;
+	text-align: left;
 	margin-top: 50px;
-	color: #007eee;
+	color: #ffda44;
 	cursor: pointer;
 }
 .info-modify:hover {
@@ -163,6 +104,9 @@ html {
 	float: left;
 	width: 650px;
 }
+.item-info:hover {
+	text-decoration: none;
+}
 .publish-item .item-title:hover {
 	text-decoration: underline;
 }
@@ -192,7 +136,7 @@ html {
 	margin-left: 20px;
 	padding: 5px 10px;
 	border-radius: 3px;
-	background: #007eee;
+	background: #ffda44;
 	font-size: 14px;
 	color: #fff;
 	cursor: pointer;
@@ -252,7 +196,7 @@ html {
 	margin: 20px 10px 0 0;
 	line-height: 30px;
 	border-radius: 4px;
-	background: #007eee;
+	background: #ffda44;
 	font-size: 14px;
 	color: #fff;
 	cursor: pointer;

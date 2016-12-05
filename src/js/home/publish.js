@@ -26,7 +26,8 @@ $(function() {
 	                		$('.J_author').val(book.author);
 	                		$('.J_category').val(book.tid);
 	                		$('.J_desc').val(book.book_desc);
-	                		$('.J_preview').attr('src', book.cover_img);	           
+	                		$('.J_preview').attr('src', book.cover_img);
+                            $('.J_degree').val(book.degree)	           
 	                	}        
 	                },
 	                error: function() {
@@ -45,8 +46,6 @@ $(function() {
                 	if (!data.success) {
                 		window.location = '/home/sign-in.html'   
                 	} else {  
-                		$('.J_logined').html('你好！' + data.uname).show();
-						$('.J_not-login').hide();
 						that.uid = data.uid;
                 	}        
                 },
@@ -105,16 +104,26 @@ $(function() {
             });
 			
 			$('.J_btn').on('click', function() {
-				var data = {
-                    bookname: $('.J_bookname').val().trim(),
-                    count: $('.J_count').val().trim(),
-                    concern: $('.J_concern').val().trim(),
-                    author: $('.J_author').val().trim(),
-                    category: $('.J_category').val(),
-                    desc: $('.J_desc').val().trim(),
-                    img: $('.J_preview').attr('src'),
-                    uid: that.uid
-                };
+                var $publishTip = $('.J_publish-tip'),
+                    data = {
+                        bookname: $('.J_bookname').val().trim(),
+                        count: $('.J_count').val().trim(),
+                        concern: $('.J_concern').val().trim(),
+                        author: $('.J_author').val().trim(),
+                        category: $('.J_category').val(),
+                        desc: $('.J_desc').val().trim(),
+                        img: $('.J_preview').attr('src'),
+                        degree: $('.J_degree').val().trim(),
+                        uid: that.uid
+                    };
+
+                $publishTip.html('');
+
+                if (validate(data)) {
+                    $publishTip.html(validate(data));
+                    return;
+                }
+
 				$.ajax({
 	                url: '/api/home/publish',
 	                type: 'post',
@@ -122,8 +131,10 @@ $(function() {
 	                dataType: 'json',
 	                success: function(data) {
 	                	if (data.success) {
-	                		console.log(data)     
-	                	}           
+	                		window.location = '/home/index.html'     
+	                	} else {
+                            $publishTip.html(data.message);
+                        }        
 	                },
 	                error: function() {
 	                    console.log('error');
@@ -166,5 +177,46 @@ $(function() {
             }
         }
         return params;
+    }
+
+    function validate(data) {
+        var message = '';
+        if (!data.bookname) {
+            return message = '书名不能为空'
+        }
+
+        if (!data.count) {
+            return message = '数量不能为空'
+        }
+
+        if (data.count && !/^[0-9]*$/.test(data.count)) {
+            return message = '请填写正确的数量'
+        }
+
+        if (!data.concern) {
+            return message = '作者不能为空'
+        }
+
+        if (!data.author) {
+            return message = '作者不能为空'
+        }
+
+        if (!data.category) {
+            return message = '分类不能为空'
+        }
+
+        if (!data.desc) {
+            return message = '描述不能为空'
+        }
+
+        if (!data.img) {
+            return message = '封面图不能为空'
+        }
+
+        if (!data.degree) {
+            return message = '成色不能为空'
+        }
+
+        return false
     }
 })

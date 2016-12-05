@@ -2,21 +2,7 @@ $(function() {
 	var main = {
 		init: function() {
 			this.fetch();
-			this.getUserInfo();
 			this.bindEvent();
-		},
-		getUserInfo: function() {
-			$.ajax({
-				url: '/api/home/getUserInfo',
-				type: 'get',
-				dataType: 'json',
-				success: function(result) {
-					if (result.success) {
-						$('.J_logined').html('你好！' + result.uname).show();
-						$('.J_not-login').hide();
-					}
-				}
-			})
 		},
 		fetch: function() {
 			var id = getQuery(window.location.href).id,
@@ -34,25 +20,10 @@ $(function() {
 			})
 		},
 		render: function(data) {
-			var tpl = $('#tpl').html();
+			var tpl = $('#book-tpl').html();
 			var html = juicer(tpl, data);
 			var that = this;
-			$('.J_book-wrapper').html(html);
-		},
-		bindEvent: function() {
-			var that = this;
-			$('.J_search').on('keydown', function(e) {
-				var content = $(this).val();
-					
-				if (e.keyCode === 13) {
-					that.fetchSearchData(content);
-				}
-			})
-			var $infoTab = $('.J_info-tab');
-			$infoTab.on('click', function() {
-				$infoTab.removeClass('active');
-				$(this).addClass('active');
-			});
+			$('.J_detail').html(html);
 		}
 	}
 	main.init()
